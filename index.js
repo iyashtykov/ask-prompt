@@ -6,7 +6,17 @@
     const context = await codioIDE.coachBot.getContext()
     const input = await codioIDE.coachBot.input("Please paste the error message you want me to explain!")
 
-    const userPrompt = "{% prompt 'ASK_PROMT' %}"
+    let userPrompt = ""
+    if(context.files.length > 0 && context.files[0].path === "student_file.py"){
+        userPrompt = "{% prompt 'ASK_PROMT_PYTHON' %}"
+    }
+    if(context.files.length > 0 && context.files[0].path === "student_file.java"){
+        userPrompt = "{% prompt 'ASK_PROMT_JAVA' %}"
+    }
+    if(context.files.length > 0 && context.files[0].path === "student_file.cpp"){
+        userPrompt = "{% prompt 'ASK_PROMT_CPP' %}"
+    }
+
     const result = await codioIDE.coachBot.ask({
       systemPrompt: systemPrompt,
       userPrompt: userPrompt,
