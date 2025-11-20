@@ -1,5 +1,5 @@
 {
-  "name": "Ask promt extension",
+  "name": "Ask prompt extension",
   "type": "helper",
   "properties": {
     "user_type": "all",
