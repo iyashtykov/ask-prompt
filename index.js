@@ -1,10 +1,10 @@
 (async function(codioIDE, window) {
 
   const systemPrompt = "You are a help assistant"
-  codioIDE.coachBot.register("iNeedHelpButton", "Ask a question", onButtonPress)
+  codioIDE.coachBot.register("askPromtButton", "Ask a question", onButtonPress)
   async function onButtonPress() {
     const context = await codioIDE.coachBot.getContext()
-    const input = await codioIDE.coachBot.input("Please paste the error message you want me to explain!")
+    const input = await codioIDE.coachBot.input("Please paste the message you want me to explain!")
 
     let userPrompt = ""
     if(context.files.length > 0 && context.files[0].path === "student_file.py"){
