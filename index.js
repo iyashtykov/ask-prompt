@@ -6,7 +6,7 @@
     const context = await codioIDE.coachBot.getContext()
     const input = await codioIDE.coachBot.input("Please paste the message you want me to explain!")
 
-    let userPrompt = ""
+    let userPrompt = "{% prompt 'NO_OPEN_FILE' %}"
     if(context.files.length > 0 && context.files[0].path === "student_file.py"){
         userPrompt = "{% prompt 'ASK_PROMT_PYTHON' %}"
     }
